@@ -7,19 +7,22 @@ describe('Example', () => {
     await device.reloadReactNative();
   });
   
-  it('should have home screen', async () => {
-    // home title should be visible
+  it('App should launch the home screen', async () => {
+    // Home title should be visible
     await expect(element(by.id('homeTitle'))).toBeVisible();
   });
-  
-  it(`home screen should have 'go to store' button`, async () => {
-    // 'go to store' button should be visible
+  it(`Test 'Go to Store' button functionality`, async () => {
+    // 'Go to Store' button should be visible
     await expect(element(by.id('storeBtn'))).toBeVisible();
-    // it should tap on 'go to store' button
+    // Tap on 'Go to Store' button
     await element(by.id('storeBtn')).tap();  
-    // it should navigate to store screen and validate store title is visible
+    // It should navigate to store screen and validate store title is visible
     await expect(element(by.id('storeTitle'))).toBeVisible();
-
-  });
-  
+    // 'Go Back' button should be visible
+    await expect(element(by.id('backBtn'))).toBeVisible();
+    // Tap on 'Go Back' button
+    await element(by.id('backBtn')).tap();  
+    // It should navigate to home screen and validate home title is visible
+    await expect(element(by.id('homeTitle'))).toBeVisible();
+  })
 });
